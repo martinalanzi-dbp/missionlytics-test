@@ -1,0 +1,136 @@
+/* Figma Design Tokens for Button Component */
+/* Source: Solar for Lexipol Design System - Component: Button Primary SM Default (Node ID: 2677:17954) */
+
+:root {
+  /* ============================================
+     Figma Button Primary Design Tokens
+     ============================================ */
+  
+  /* ============================================
+     Figma Button Variants - Extracted from Design
+     ============================================ */
+  
+  /* Primary Button */
+  --buttons-primary-default-background: #004b87;
+  --buttons-primary-default-stroke: #004b87;
+  --buttons-primary-default-text: #ffffff;
+  --buttons-primary-disabled-background: #eef2f6;
+  --buttons-primary-disabled-stroke: #e3e8ef;
+  --buttons-primary-disabled-text: #121926;
+
+  /* Destructive Button */
+  --buttons-destructive-default-background: #dc2626;
+  --buttons-destructive-default-stroke: #dc2626;
+  --buttons-destructive-default-text: #ffffff;
+  --buttons-destructive-hovered-background: #dc2626;
+  --buttons-destructive-hovered-stroke: #dc2626;
+  --buttons-destructive-hovered-text: #ffffff;
+
+  /* Secondary Button */
+  --buttons-secondary-default-background: #ffffff;
+  --buttons-secondary-default-stroke: #e3e8ef;
+  --buttons-secondary-default-text: #121926;
+
+  /* Ghost Button */
+  --buttons-ghost-default-text: #004b87;
+  --buttons-ghost-default-background: transparent;
+  --buttons-ghost-default-stroke: transparent;
+
+  /* Legacy Component Tokens (for backward compatibility) */
+  --color-component-button-primary-background: #18181b;
+  --color-component-button-primary-foreground: #ffffff;
+  --color-component-button-primary-border: #00000000;
+  --color-component-button-primary-background-hover: #18181b;
+
+  /* Button Destructive */
+  --color-component-button-destructive-background: #ef4444;
+  --color-component-button-destructive-foreground: #ffffff;
+  --color-component-button-destructive-border: #00000000;
+  --color-component-button-destructive-background-hover: #ef4444;
+
+  /* Button Outline */
+  --color-component-button-outline-background: #00000000;
+  --color-component-button-outline-foreground: #18181b;
+  --color-component-button-outline-border: #e4e4e7;
+  --color-component-button-outline-background-hover: #f4f4f5;
+
+  /* Button Secondary */
+  --color-component-button-secondary-background: #f4f4f5;
+  --color-component-button-secondary-foreground: #18181b;
+  --color-component-button-secondary-border: #00000000;
+  --color-component-button-secondary-background-hover: #f4f4f5;
+
+  /* Button Ghost */
+  --color-component-button-ghost-background: #00000000;
+  --color-component-button-ghost-foreground: #18181b;
+  --color-component-button-ghost-border: #00000000;
+  --color-component-button-ghost-background-hover: #f4f4f5;
+
+  /* Button Link */
+  --color-component-button-link-background: #00000000;
+  --color-component-button-link-foreground: #18181b;
+  --color-component-button-link-border: #00000000;
+  --color-component-button-link-background-hover: #00000000;
+
+  /* ============================================
+     Figma Spacing Tokens
+     ============================================ */
+  
+  /* Spacing scale from Figma */
+  --spacing-1: 4px;   /* Base unit - used for border radius SM/MD */
+  --spacing-2: 8px;   /* Gap between elements, vertical padding SM */
+  --spacing-3: 12px;  /* Vertical padding MD */
+  --spacing-4: 16px;  /* Horizontal padding SM, vertical padding LG */
+  --spacing-6: 24px;  /* Horizontal padding MD */
+  --spacing-8: 32px;  /* Horizontal padding LG */
+  
+  /* Legacy sizing tokens */
+  --sizing-2: 8px;
+  --sizing-2-5: 10px;
+  --spacing-5: 20px;
+
+  /* ============================================
+     Figma Typography Tokens - Buttons
+     ============================================ */
+  
+  --button-font-family: "Inter", sans-serif;
+  --button-font-weight: 500; /* Medium */
+  
+  /* Button SM */
+  --button-sm-font-size: 16px;
+  --button-sm-line-height: 1.2;
+  --button-sm-letter-spacing: 0.16px;
+  
+  /* Button MD */
+  --button-md-font-size: 18px;
+  --button-md-line-height: 1.2;
+  --button-md-letter-spacing: 0.18px;
+  
+  /* Button LG */
+  --button-lg-font-size: 22px;
+  --button-lg-line-height: 1.2;
+  --button-lg-letter-spacing: 0.22px;
+
+  /* ============================================
+     Figma Sizing Tokens
+     ============================================ */
+  
+  --button-icon-sm: 16px;
+  --button-icon-md: 24px;
+  --button-icon-lg: 24px;
+  
+  /* Border Radius */
+  --button-radius-sm: 4px;  /* spacing-1 */
+  --button-radius-md: 4px;  /* spacing-1 */
+  --button-radius-lg: 8px;  /* spacing-2 */
+}
+
+.dark {
+  /* Dark mode overrides if needed */
+  --color-component-button-primary-background: #ffffff;
+  --color-component-button-primary-foreground: #18181b;
+  --color-component-button-primary-background-hover: #f4f4f5;
+  
+  /* You can override Figma tokens for dark mode here */
+  /* --buttons-primary-default-background: #0055a5; */
+}

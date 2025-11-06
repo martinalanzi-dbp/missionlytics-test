@@ -1,0 +1,50 @@
+{
+  "source": {
+    "figmaFile": "Solar for Lexipol",
+    "figmaUrl": "https://www.figma.com/design/BDZd4LSDavFuFyEZdYjGUO/Solar-for-Lexipol?node-id=2677-17954",
+    "component": "Button - Primary, Size SM, Status Default",
+    "nodeId": "2677:17954",
+    "extractedAt": "2024"
+  },
+  "colors": {
+    "buttons": {
+      "primary": {
+        "default": {
+          "background": "#004b87",
+          "stroke": "#004b87",
+          "text": "#ffffff"
+        }
+      }
+    }
+  },
+  "spacing": {
+    "1": "4px",
+    "2": "8px",
+    "4": "16px"
+  },
+  "typography": {
+    "button": {
+      "sm": {
+        "fontFamily": "Inter",
+        "fontWeight": 500,
+        "fontSize": "16px",
+        "lineHeight": 1.2,
+        "letterSpacing": "0.16px"
+      }
+    }
+  },
+  "sizing": {
+    "icon": {
+      "sm": "16px"
+    }
+  },
+  "borderRadius": {
+    "button": "4px"
+  },
+  "files": {
+    "typescript": "src/lib/design-tokens.ts",
+    "css": "src/styles/theme.css",
+    "documentation": "DESIGN_TOKENS.md"
+  }
+}
+
