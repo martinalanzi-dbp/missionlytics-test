@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { ChevronRight, ChevronDown, DollarSign, Tablet, Globe, Building2, Search, Filter, Columns, Upload, ArrowRight } from "lucide-react"
+import { ChevronRight, ChevronDown, DollarSign, Tablet, Globe, Building2, Search, Filter, Columns, Upload, ArrowRight, MoreHorizontal, Calendar } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
@@ -19,18 +19,7 @@ const customers = [
   { id: "10001", accountHolder: "Alex Johnson", totalAccounts: 2, numberOfNetworks: 2 },
   { id: "10002", accountHolder: "Maria Smith", totalAccounts: 3, numberOfNetworks: 3 },
   { id: "10003", accountHolder: "David Brown", totalAccounts: 4, numberOfNetworks: 4 },
-  { id: "10004", accountHolder: "Sarah Williams", totalAccounts: 5, numberOfNetworks: 5 },
-  { id: "10005", accountHolder: "James Wilson", totalAccounts: 6, numberOfNetworks: 6 },
-  { id: "10006", accountHolder: "Emily Davis", totalAccounts: 7, numberOfNetworks: 7 },
-  { id: "10007", accountHolder: "Michael Miller", totalAccounts: 8, numberOfNetworks: 8 },
-  { id: "10008", accountHolder: "Jessica Garcia", totalAccounts: 9, numberOfNetworks: 9 },
-  { id: "10009", accountHolder: "Christopher Martinez", totalAccounts: 10, numberOfNetworks: 10 },
-  { id: "10010", accountHolder: "Amanda Anderson", totalAccounts: 11, numberOfNetworks: 11 },
-  { id: "10011", accountHolder: "Daniel Taylor", totalAccounts: 12, numberOfNetworks: 12 },
-  { id: "10012", accountHolder: "Laura Thomas", totalAccounts: 13, numberOfNetworks: 13 },
-  { id: "10013", accountHolder: "Matthew Jackson", totalAccounts: 14, numberOfNetworks: 14 },
-  { id: "10014", accountHolder: "Ashley White", totalAccounts: 15, numberOfNetworks: 15 },
-  { id: "10015", accountHolder: "Andrew Harris", totalAccounts: 16, numberOfNetworks: 16 },
+  { id: "10004", accountHolder: "Sophia Davis", totalAccounts: 5, numberOfNetworks: 5 },
 ]
 
 export default function WorkspaceDetailPage({ params }: { params: { id: string } }) {
@@ -47,16 +36,16 @@ export default function WorkspaceDetailPage({ params }: { params: { id: string }
   }
 
   return (
-    <div className="min-h-screen bg-gray-50/50">
+    <div className="min-h-screen bg-[#F9FAFB]">
       {/* Breadcrumbs */}
       <div className="border-b bg-white">
         <div className="container mx-auto px-6 py-3">
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <Link href="/workspaces" className="hover:text-foreground">
+          <div className="flex items-center gap-2 text-sm text-gray-500">
+            <Link href="/workspaces" className="hover:text-gray-900">
               Workspace
             </Link>
             <ChevronRight className="h-4 w-4" />
-            <span className="text-foreground">Workspace Name</span>
+            <span className="text-gray-900">Workspace Name</span>
           </div>
         </div>
       </div>
@@ -64,11 +53,12 @@ export default function WorkspaceDetailPage({ params }: { params: { id: string }
       {/* Header Actions */}
       <div className="border-b bg-white">
         <div className="container mx-auto px-6 py-3">
-          <div className="flex items-center justify-end gap-4">
+          <div className="flex items-center justify-end gap-3">
             {/* Date Range */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="outline" className="h-9">
+                <Button variant="outline" className="h-9 border-gray-300 text-gray-700 hover:bg-gray-50">
+                  <Calendar className="mr-2 h-4 w-4" />
                   01/01/25 - 12/31/25
                   <ChevronDown className="ml-2 h-4 w-4" />
                 </Button>
@@ -84,8 +74,8 @@ export default function WorkspaceDetailPage({ params }: { params: { id: string }
             {/* Investigation Tools */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="outline" className="h-9">
-                  Investigation tools
+                <Button variant="outline" className="h-9 border-gray-300 text-gray-700 hover:bg-gray-50">
+                  Investigation Tools
                   <ChevronDown className="ml-2 h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
@@ -95,6 +85,20 @@ export default function WorkspaceDetailPage({ params }: { params: { id: string }
                 <DropdownMenuItem>Create Investigation</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
+
+            {/* Overflow Menu */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" size="icon" className="h-9 w-9 border-gray-300 text-gray-700 hover:bg-gray-50">
+                  <MoreHorizontal className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuItem>Settings</DropdownMenuItem>
+                <DropdownMenuItem>Preferences</DropdownMenuItem>
+                <DropdownMenuItem>Help</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         </div>
       </div>
@@ -102,165 +106,178 @@ export default function WorkspaceDetailPage({ params }: { params: { id: string }
       {/* Main Content */}
       <div className="container mx-auto px-6 py-8">
         {/* Title Section */}
-        <div className="mb-6">
-          <h1 className="text-3xl font-bold mb-2">Workspace Title</h1>
-          <p className="text-muted-foreground">
+        <div className="mb-8">
+          <h1 className="text-3xl font-bold mb-2 text-gray-900">Workspace Title</h1>
+          <p className="text-gray-500 text-sm">
             Multiple customers using same Device ID and sharing Static IP Addresses.
           </p>
         </div>
 
         {/* Metric Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-          <Card className="bg-white">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <Card className="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
-                <div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <DollarSign className="h-5 w-5 text-muted-foreground" />
-                    <span className="text-sm text-muted-foreground">Total activity</span>
+                <div className="flex items-start gap-4">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-50">
+                    <DollarSign className="h-5 w-5 text-blue-600" />
                   </div>
-                  <p className="text-2xl font-bold">$850,000</p>
+                  <div>
+                    <p className="text-xs text-gray-500 mb-1">Total Amount</p>
+                    <p className="text-2xl font-bold text-gray-900">$850,000</p>
+                  </div>
                 </div>
-                <ArrowRight className="h-5 w-5 text-muted-foreground" />
+                <ArrowRight className="h-5 w-5 text-gray-400" />
               </div>
             </CardContent>
           </Card>
 
-          <Card className="bg-white">
+          <Card className="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
-                <div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <Tablet className="h-5 w-5 text-muted-foreground" />
-                    <span className="text-sm text-muted-foreground">Shared devices</span>
+                <div className="flex items-start gap-4">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-50">
+                    <Tablet className="h-5 w-5 text-blue-600" />
                   </div>
-                  <p className="text-2xl font-bold">10</p>
+                  <div>
+                    <p className="text-xs text-gray-500 mb-1">Shared Devices</p>
+                    <p className="text-2xl font-bold text-gray-900">10</p>
+                  </div>
                 </div>
-                <ArrowRight className="h-5 w-5 text-muted-foreground" />
+                <ArrowRight className="h-5 w-5 text-gray-400" />
               </div>
             </CardContent>
           </Card>
 
-          <Card className="bg-white">
+          <Card className="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
-                <div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <Globe className="h-5 w-5 text-muted-foreground" />
-                    <span className="text-sm text-muted-foreground">Shared IP addresses</span>
+                <div className="flex items-start gap-4">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-50">
+                    <Globe className="h-5 w-5 text-blue-600" />
                   </div>
-                  <p className="text-2xl font-bold">10</p>
+                  <div>
+                    <p className="text-xs text-gray-500 mb-1">Shared IP Addresses</p>
+                    <p className="text-2xl font-bold text-gray-900">10</p>
+                  </div>
                 </div>
-                <ArrowRight className="h-5 w-5 text-muted-foreground" />
+                <ArrowRight className="h-5 w-5 text-gray-400" />
               </div>
             </CardContent>
           </Card>
 
-          <Card className="bg-white">
+          <Card className="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
-                <div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <Building2 className="h-5 w-5 text-muted-foreground" />
-                    <span className="text-sm text-muted-foreground">Shared counterparties</span>
+                <div className="flex items-start gap-4">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-50">
+                    <Building2 className="h-5 w-5 text-blue-600" />
                   </div>
-                  <p className="text-2xl font-bold">20</p>
+                  <div>
+                    <p className="text-xs text-gray-500 mb-1">Shared Counterparties</p>
+                    <p className="text-2xl font-bold text-gray-900">20</p>
+                  </div>
                 </div>
-                <ArrowRight className="h-5 w-5 text-muted-foreground" />
+                <ArrowRight className="h-5 w-5 text-gray-400" />
               </div>
             </CardContent>
           </Card>
         </div>
 
         {/* Table Section */}
-        <Card className="bg-white">
+        <Card className="bg-white border border-gray-200 shadow-sm">
           <CardContent className="p-0">
             {/* Search and Actions Bar */}
-            <div className="flex items-center justify-between p-4 border-b">
+            <div className="flex items-center justify-between p-6 border-b border-gray-200">
               <div className="relative w-64">
-                <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
                 <Input
                   type="search"
                   placeholder="Search"
-                  className="pl-9 h-9"
+                  className="pl-9 h-9 border-gray-300 focus:border-blue-500 focus:ring-blue-500"
                 />
               </div>
               <div className="flex items-center gap-2">
-                <Button variant="outline" size="sm" className="h-9">
+                <Button variant="outline" size="sm" className="h-9 border-gray-300 text-gray-700 hover:bg-gray-50">
                   <Filter className="mr-2 h-4 w-4" />
                   Filter
                 </Button>
-                <Button variant="outline" size="sm" className="h-9">
+                <Button variant="outline" size="sm" className="h-9 border-gray-300 text-gray-700 hover:bg-gray-50">
                   <Columns className="mr-2 h-4 w-4" />
                   Columns
                 </Button>
-                <Button variant="outline" size="sm" className="h-9">
+                <Button variant="outline" size="sm" className="h-9 border-gray-300 text-gray-700 hover:bg-gray-50">
                   <Upload className="mr-2 h-4 w-4" />
                   Export data
                 </Button>
-                <Button size="sm" className="h-9 bg-[#004b87] hover:bg-[#003d6b]">
+                <Button size="sm" className="h-9 bg-[#004b87] hover:bg-[#003d6b] text-white">
                   + Add customer
                 </Button>
               </div>
             </div>
 
             {/* Table */}
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead className="w-12">
-                    <input
-                      type="checkbox"
-                      className="rounded border-gray-300"
-                      onChange={(e) => {
-                        if (e.target.checked) {
-                          setSelectedRows(new Set(customers.map((c) => c.id)))
-                        } else {
-                          setSelectedRows(new Set())
-                        }
-                      }}
-                      checked={selectedRows.size === customers.length}
-                    />
-                  </TableHead>
-                  <TableHead>Customer ID</TableHead>
-                  <TableHead>Account Holder</TableHead>
-                  <TableHead>Total Accounts</TableHead>
-                  <TableHead>Number of Networks</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {customers.map((customer) => (
-                  <TableRow key={customer.id}>
-                    <TableCell>
+            <div className="overflow-x-auto">
+              <Table>
+                <TableHeader>
+                  <TableRow className="bg-gray-50 hover:bg-gray-50 border-b border-gray-200">
+                    <TableHead className="w-12">
                       <input
                         type="checkbox"
-                        className="rounded border-gray-300"
-                        checked={selectedRows.has(customer.id)}
-                        onChange={() => toggleRow(customer.id)}
+                        className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                        onChange={(e) => {
+                          if (e.target.checked) {
+                            setSelectedRows(new Set(customers.map((c) => c.id)))
+                          } else {
+                            setSelectedRows(new Set())
+                          }
+                        }}
+                        checked={selectedRows.size === customers.length}
                       />
-                    </TableCell>
-                    <TableCell className="font-medium">{customer.id}</TableCell>
-                    <TableCell>{customer.accountHolder}</TableCell>
-                    <TableCell>{customer.totalAccounts}</TableCell>
-                    <TableCell>{customer.numberOfNetworks}</TableCell>
+                    </TableHead>
+                    <TableHead className="text-gray-700 font-semibold">Customer ID</TableHead>
+                    <TableHead className="text-gray-700 font-semibold">Account Holder</TableHead>
+                    <TableHead className="text-gray-700 font-semibold">Total Accounts</TableHead>
+                    <TableHead className="text-gray-700 font-semibold">Number of Networks</TableHead>
                   </TableRow>
-                ))}
-              </TableBody>
-            </Table>
+                </TableHeader>
+                <TableBody>
+                  {customers.map((customer) => (
+                    <TableRow 
+                      key={customer.id}
+                      className="border-b border-gray-100 hover:bg-gray-50 transition-colors"
+                    >
+                      <TableCell>
+                        <input
+                          type="checkbox"
+                          className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                          checked={selectedRows.has(customer.id)}
+                          onChange={() => toggleRow(customer.id)}
+                        />
+                      </TableCell>
+                      <TableCell className="font-medium text-gray-900">{customer.id}</TableCell>
+                      <TableCell className="text-gray-700">{customer.accountHolder}</TableCell>
+                      <TableCell className="text-gray-700">{customer.totalAccounts}</TableCell>
+                      <TableCell className="text-gray-700">{customer.numberOfNetworks}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
 
             {/* Pagination */}
-            <div className="flex items-center justify-between p-4 border-t">
-              <div className="text-sm text-muted-foreground">
+            <div className="flex items-center justify-between p-6 border-t border-gray-200">
+              <div className="text-sm text-gray-500">
                 Page 1 of 1
               </div>
               <div className="flex items-center gap-2">
-                <Button variant="outline" size="sm" className="h-9" disabled>
+                <Button variant="outline" size="sm" className="h-9 border-gray-300 text-gray-700 hover:bg-gray-50" disabled>
                   Prev
                 </Button>
-                <Button variant="outline" size="sm" className="h-9 bg-[#004b87] text-white hover:bg-[#003d6b]">
+                <Button variant="outline" size="sm" className="h-9 bg-[#004b87] text-white hover:bg-[#003d6b] border-[#004b87]">
                   1
                 </Button>
-                <Button variant="outline" size="sm" className="h-9" disabled>
+                <Button variant="outline" size="sm" className="h-9 border-gray-300 text-gray-700 hover:bg-gray-50" disabled>
                   Next
                 </Button>
               </div>
